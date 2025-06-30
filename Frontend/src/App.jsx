@@ -12,6 +12,9 @@ import AddTravelGuide from './pages/AddTravelGuide';
 import AddDestination from './pages/AddDestination';
 import TravelGuides from './pages/TravelGuides';
 import Destinations from './pages/Destinations';
+import AddGoods from './pages/AddGoods';
+import AddHotel from './pages/AddHotel';
+import AddPackage from './pages/AddPackage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,6 +37,9 @@ function App() {
          <Route path="/AddDestination" element={<AddDestination />} />
          <Route path="/TravelGuides" element={<TravelGuides />} />
          <Route path="/Destinations" element={<Destinations />} />
+         <Route path="/AddGoods" element={<AddGoods />} />
+         <Route path="/AddHotel" element={<AddHotel />} />
+         <Route path="/AddPackage" element={<AddPackage />} />
 
       </Routes>
 
