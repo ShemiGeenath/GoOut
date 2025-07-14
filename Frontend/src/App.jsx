@@ -15,6 +15,7 @@ import Destinations from './pages/Destinations';
 import AddGoods from './pages/AddGoods';
 import AddHotel from './pages/AddHotel';
 import AddPackage from './pages/AddPackage';
+import HotelList from './pages/HotelList';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -40,6 +41,7 @@ function App() {
          <Route path="/AddGoods" element={<AddGoods />} />
          <Route path="/AddHotel" element={<AddHotel />} />
          <Route path="/AddPackage" element={<AddPackage />} />
+         <Route path="/HotelList" element={<HotelList />} />
 
       </Routes>
 

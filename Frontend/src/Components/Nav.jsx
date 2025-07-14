@@ -72,6 +72,7 @@ const Nav = () => {
           <Link to="/packages" className="hover:text-yellow-500 transition">Packages</Link>
           <Link to="/bookings" className="hover:text-yellow-500 transition">Bookings</Link>
           <Link to="/TravelGuides" className="hover:text-yellow-500 transition">Blog</Link>
+          <Link to="/HotelList" className="hover:text-yellow-500 transition">Hotel</Link>
         </div>
 
         {/* Right Section */}

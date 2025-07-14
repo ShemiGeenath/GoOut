@@ -136,36 +136,7 @@ export default function AddGoods() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 py-10 px-4">
       {/* Navigation Buttons for Other Add Pages */}
-      <div className="max-w-6xl mx-auto mb-8 flex justify-center gap-4 flex-wrap">
-        <motion.button
-          whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.1)" }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => navigate('/AddTravelGuide')}
-          className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-xl shadow-lg font-medium"
-        >
-          <FiUser className="text-lg" />
-          Add Travel Guide
-        </motion.button>
-        
-        <motion.button
-          whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.1)" }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => navigate('/AddDestination')}
-          className="flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-xl shadow-lg font-medium"
-        >
-          <FiCompass className="text-lg" />
-          Add Destination
-        </motion.button>
-        
-        <motion.button
-          whileHover={{ scale: 1.05, boxShadow: "0px 5px 15px rgba(0,0,0,0.1)" }}
-          whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-teal-500 text-white px-6 py-3 rounded-xl shadow-lg font-medium border-2 border-white"
-        >
-          <FiPlus className="text-lg" />
-          Add Goods/Items
-        </motion.button>
-      </div>
+     
       
       {/* Main Form Container */}
       <motion.div 

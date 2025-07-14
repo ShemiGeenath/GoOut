@@ -52,7 +52,7 @@ const Signin = () => {
       const { username, token } = response.data;
 
       // Save to localStorage
-localStorage.setItem('userId', response.data.userId);
+      localStorage.setItem('userId', response.data.userId);
       localStorage.setItem('username', username);
       localStorage.setItem('token', token);
 

@@ -10,19 +10,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve uploaded images
 app.use('/uploads', express.static('uploads'));
 
-// Routes
-const authRoute = require('./routes/authRoute'); // if used
-const itemRoutes = require('./routes/itemRoutes');
+// 🔴 COMMENT THESE TEMPORARILY
+ const authRoute = require('./routes/authRoute');
+ const itemRoutes = require('./routes/itemRoutes');
+const guideRoutes = require('./routes/guideRoutes');
+const hotelRoutes = require('./routes/hotelRoute');
 
-
-
-
-
-app.use('/api/auth', authRoute); // optional
-app.use('/api/items', itemRoutes);
+// 🔴 ONLY USE ONE ROUTE FOR TESTING
+ app.use('/api/auth', authRoute);
+ app.use('/api/items', itemRoutes);
+app.use('/api/guides', guideRoutes); // 🚨 THIS is what we'll test
+app.use('/api/hotels', hotelRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
