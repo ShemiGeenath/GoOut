@@ -24,6 +24,7 @@ const hotelSchema = new mongoose.Schema({
   amenities: [String],
   rooms: [roomSchema],
   images: [String],
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // ✅ User reference
 }, {
   timestamps: true
 });

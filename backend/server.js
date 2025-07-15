@@ -17,12 +17,14 @@ app.use('/uploads', express.static('uploads'));
  const itemRoutes = require('./routes/itemRoutes');
 const guideRoutes = require('./routes/guideRoutes');
 const hotelRoutes = require('./routes/hotelRoute');
+const packageRoute = require('./routes/packageRoute');
 
 // 🔴 ONLY USE ONE ROUTE FOR TESTING
  app.use('/api/auth', authRoute);
  app.use('/api/items', itemRoutes);
 app.use('/api/guides', guideRoutes); // 🚨 THIS is what we'll test
 app.use('/api/hotels', hotelRoutes);
+app.use('/api/packages', packageRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));

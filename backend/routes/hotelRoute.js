@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
     allowedTypes.includes(file.mimetype)
@@ -29,14 +29,18 @@ const upload = multer({
   }
 });
 
-// ✅ POST: Create new hotel
+// ✅ POST: Create new hotel with user
 router.post('/', upload.array('images', 10), async (req, res) => {
   try {
     const {
       propertyName, propertyType, description, location, contactPhone,
       contactEmail, stars, checkInTime, checkOutTime, priceRange,
-      hasRestaurant, hasPool, amenities, rooms
+      hasRestaurant, hasPool, amenities, rooms, user // must come from frontend
     } = req.body;
+
+    if (!user) {
+      return res.status(400).json({ error: 'Missing user ID for hotel creation' });
+    }
 
     const hotel = new Hotel({
       propertyName,
@@ -54,6 +58,7 @@ router.post('/', upload.array('images', 10), async (req, res) => {
       amenities: JSON.parse(amenities),
       rooms: JSON.parse(rooms),
       images: req.files.map(f => f.path),
+      user // ✅ store user ID here
     });
 
     const saved = await hotel.save();
@@ -72,6 +77,17 @@ router.get('/', async (req, res) => {
     res.json(hotels);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch hotels' });
+  }
+});
+
+// ✅ GET hotels for specific user
+router.get('/user/:userId', async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const hotels = await Hotel.find({ user: userId }).sort({ createdAt: -1 });
+    res.json({ hotels });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch user hotels' });
   }
 });
 
